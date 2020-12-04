@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/04 19:14:45 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/04 19:44:53 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,11 @@
 # include <stdio.h>
 
 
-int ft_parse(const char **str, va_list va, int * bytes)
-{
-	t_keys *keys;
-
-
-	(void)va;
-	(void)bytes;
-//	keys.width = '\0';
-//	keys.precision = -1;
-//	keys.length = '\0';
-//	keys.specifier = '\0';
-//	return keys;
-//	char * g = va_arg(va,char *);
-//	printf("%s",g);
-//	printf("%d",*bytes);
-	return 0;
-}
-
-int ft_keys(const char **str, va_list va, int * bytes)
+t_keys * ft_keys(char **str)
 {
 	t_keys *keys;
 	if (!(keys = (t_keys*)malloc(sizeof(t_keys))))
-		return -1;
+		return NULL;
 	*keys = ft_init(*keys);
 	if (ft_is_in_set("-+ #0", **str) == 1)
 	{
@@ -54,6 +36,17 @@ int ft_keys(const char **str, va_list va, int * bytes)
 		keys->specifier = **str;
 		(*str)++;
 	}
+	return keys;
+}
+
+int ft_parse(const char **str, va_list va, int * bytes)
+{
+	t_keys *keys;
+
+	keys = ft_keys((char **)str);
+
+
+	printf("%s", *str );
 	(void)va;
 	(void)bytes;
 //	keys.width = '\0';
@@ -85,7 +78,7 @@ int			ft_printf(const char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			if (ft_keys(&str, va, &bytes) < 0)
+			if (ft_parse(&str, va, &bytes) < 0)
 				return (-1);
 			str++;
 		}
