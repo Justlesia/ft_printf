@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/04 20:40:20 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 02:40:02 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,23 @@
 
 int ft_print_s(t_keys *keys, va_list va, int * bytes)
 {
-	(void)keys;
 	int len;
 	char *str;
+	int w;
 
 	str = va_arg(va,char *);
 	len = ft_strlen(str);
+	if ((*keys).precision > -1)
+		len = (*keys).precision;
+	if ((*keys).width > -1)
+	{
+		if ((*keys).flags != '0' || (*keys).precision > 0)
+			(*keys).flags = ' ';
+		w = (*keys).width - len;
+		while (w-- > 0)
+			write(1, &((*keys).flags), 1);
+	}
 	write(1, str, len);
-	(*bytes) = (*bytes) + len;
+	(*bytes) = (*bytes) + len + ((*keys).width - len);
 	return 0;
 }

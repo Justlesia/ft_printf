@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 02:11:13 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 02:35:10 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int main(void)
 	//char c = 'j';
 	//float f = 0.75;
 	int f = 1;
-	printf("%s,%05.03i\n",ch,f);
-	ft_printf("%s,%05.03d",ch,f);
+	printf("%10.3s,%05.2i\n",ch,f);
+	ft_printf("%10.3s,%05.2i\n",ch,f);
 	return (0);
 }
