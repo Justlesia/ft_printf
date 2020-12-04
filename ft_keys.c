@@ -6,14 +6,14 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:18:59 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/04 19:02:14 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/04 20:00:52 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
 # include <stdio.h>
 
-t_keys ft_init(t_keys keys)
+static t_keys ft_init(t_keys keys)
 {
 	keys.flags = '\0';
 	keys.width = -1;
@@ -23,7 +23,7 @@ t_keys ft_init(t_keys keys)
 	return keys;
 }
 
-int		ft_is_in_set(const char *set, char c)
+static int		ft_is_in_set(const char *set, char c)
 {
 	int n;
 
@@ -35,4 +35,29 @@ int		ft_is_in_set(const char *set, char c)
 		n++;
 	}
 	return (0);
+}
+
+t_keys * ft_keys(char **str)
+{
+	t_keys *keys;
+	if (!(keys = (t_keys*)malloc(sizeof(t_keys))))
+		return NULL;
+	*keys = ft_init(*keys);
+	if (ft_is_in_set("-+ #0", **str) == 1)
+	{
+		keys->flags = **str;
+		(*str)++;
+	}
+	if (ft_atoi((char *)(*str)) != 0 || **str == '0')
+	{
+		keys->width = ft_atoi((char *)(*str));
+		(*str)++;
+	}
+	//добавить правило на *
+	if (ft_is_in_set("cspdiuxX%nfge", **str) == 1)
+	{
+		keys->specifier = **str;
+		(*str)++;
+	}
+	return keys;
 }

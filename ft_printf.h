@@ -19,8 +19,11 @@ typedef struct	s_keys
 	char	specifier;
 }				t_keys;
 
-t_keys ft_init(t_keys keys);
-int						ft_atoi(char *str);
-int		ft_is_in_set(const char *set, char c);
+//t_keys ft_init(t_keys keys);
+//int						ft_atoi(char *str);
+//int		ft_is_in_set(const char *set, char c);
+t_keys * ft_keys(char **str);
+int ft_print_s(t_keys *keys, va_list va, int * bytes);
+size_t	ft_strlen(const char *s);
 
 #endif //FT_PRINTF_FT_PRINTF_H

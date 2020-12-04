@@ -6,57 +6,29 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/04 19:44:53 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/04 20:40:20 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
 # include <stdio.h>
 
-
-t_keys * ft_keys(char **str)
-{
-	t_keys *keys;
-	if (!(keys = (t_keys*)malloc(sizeof(t_keys))))
-		return NULL;
-	*keys = ft_init(*keys);
-	if (ft_is_in_set("-+ #0", **str) == 1)
-	{
-		keys->flags = **str;
-		(*str)++;
-	}
-	if (ft_atoi((char *)(*str)) != 0 || **str == '0')
-	{
-		keys->width = ft_atoi((char *)(*str));
-		(*str)++;
-	}
-	//добавить правило на *
-	if (ft_is_in_set("cspdiuxX%nfge", **str) == 1)
-	{
-		keys->specifier = **str;
-		(*str)++;
-	}
-	return keys;
-}
-
 int ft_parse(const char **str, va_list va, int * bytes)
 {
 	t_keys *keys;
 
 	keys = ft_keys((char **)str);
-
-
-	printf("%s", *str );
 	(void)va;
 	(void)bytes;
-//	keys.width = '\0';
-//	keys.precision = -1;
-//	keys.length = '\0';
-//	keys.specifier = '\0';
-//	return keys;
+	if (keys->specifier == 's')
+		if((ft_print_s(keys, va, bytes)) < 0)
+			return -1;
+
 //	char * g = va_arg(va,char *);
 //	printf("%s",g);
 //	printf("%d",*bytes);
+	//printf("%d", *bytes);
+	free(keys);
 	return 0;
 }
 
@@ -80,7 +52,6 @@ int			ft_printf(const char *str, ...)
 			str++;
 			if (ft_parse(&str, va, &bytes) < 0)
 				return (-1);
-			str++;
 		}
 	}
 	va_end(va);
@@ -89,13 +60,10 @@ int			ft_printf(const char *str, ...)
 
 int main(void)
 {
-	//char *ch = "start";
-	//char *ch2 = "end";
-	float f = 0.75;
+	char *ch = "start";
+	char *ch2 = "end";
+	//float f = 0.75;
 	//printf("%s%*f\n",ch,5,f);
-	ft_printf("% 2f",f);
+	ft_printf("%s ,%s",ch,ch2);
 	return (0);
 }
-
-//[flags][width][.precision][length]specifier
-
