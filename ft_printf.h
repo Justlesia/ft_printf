@@ -23,7 +23,9 @@ typedef struct	s_keys
 //int						ft_atoi(char *str);
 //int		ft_is_in_set(const char *set, char c);
 t_keys * ft_keys(char **str);
-int ft_print_s(t_keys *keys, va_list va, int * bytes);
 size_t	ft_strlen(const char *s);
+
+int ft_print_s(t_keys *keys, va_list va, int * bytes);
+int ft_print_c(t_keys *keys, va_list va, int * bytes);
 
 #endif //FT_PRINTF_FT_PRINTF_H

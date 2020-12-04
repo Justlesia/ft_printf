@@ -6,22 +6,20 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/04 20:40:20 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/04 23:11:16 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
 # include <stdio.h>
 
-int ft_print_s(t_keys *keys, va_list va, int * bytes)
+int ft_print_c(t_keys *keys, va_list va, int * bytes)
 {
 	(void)keys;
-	int len;
-	char *str;
+	char ch;
 
-	str = va_arg(va,char *);
-	len = ft_strlen(str);
-	write(1, str, len);
-	(*bytes) = (*bytes) + len;
+	ch = (char)va_arg(va, int);
+	write(1, &ch, 1);
+	(*bytes) = (*bytes) + 1;
 	return 0;
 }
