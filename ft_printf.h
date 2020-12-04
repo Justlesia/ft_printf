@@ -22,9 +22,12 @@ typedef struct	s_keys
 //t_keys ft_init(t_keys keys);
 //int						ft_atoi(char *str);
 //int		ft_is_in_set(const char *set, char c);
-t_keys * ft_keys(char **str);
-size_t	ft_strlen(const char *s);
 
+
+size_t	ft_strlen(const char *s);
+char			*ft_itoa(int n);
+
+t_keys * ft_keys(char **str, va_list va);
 int ft_print_s(t_keys *keys, va_list va, int * bytes);
 int ft_print_c(t_keys *keys, va_list va, int * bytes);
 int ft_print_p(t_keys *keys, va_list va, int * bytes);

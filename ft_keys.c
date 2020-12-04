@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:18:59 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/04 20:00:52 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 00:44:17 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_keys ft_init(t_keys keys)
 	return keys;
 }
 
-static int		ft_is_in_set(const char *set, char c)
+static int ft_is_in_set(const char *set, char c)
 {
 	int n;
 
@@ -37,27 +37,48 @@ static int		ft_is_in_set(const char *set, char c)
 	return (0);
 }
 
-t_keys * ft_keys(char **str)
+char ft_char(char **str)
+{
+	char ch;
+	ch = **str;
+	(*str)++;
+	return ch;
+}
+
+int ft_num(int num,char **str)
+{
+	(*str) = (*str) + ft_strlen(ft_itoa(num));
+	return num;
+}
+
+float ft_va_arg(float num,char **str)
+{
+	(*str)++;
+	return num;
+}
+
+t_keys *ft_keys(char **str, va_list va)
 {
 	t_keys *keys;
-	if (!(keys = (t_keys*)malloc(sizeof(t_keys))))
+
+	if (!(keys = (t_keys *)malloc(sizeof(t_keys))))
 		return NULL;
 	*keys = ft_init(*keys);
 	if (ft_is_in_set("-+ #0", **str) == 1)
-	{
-		keys->flags = **str;
-		(*str)++;
-	}
+		keys->flags = ft_char(str);
 	if (ft_atoi((char *)(*str)) != 0 || **str == '0')
+		keys->width = ft_num(ft_atoi((char *)(*str)),str);
+	if (ft_is_in_set("*", **str) == 1)
+		keys->width = ft_num(va_arg(va, int),str);
+	if (ft_is_in_set(".", **str) == 1)
 	{
-		keys->width = ft_atoi((char *)(*str));
 		(*str)++;
+		if ((ft_is_in_set("*", **str) == 1))
+			keys->precision = ft_num(va_arg(va, double),str);
+		else
+			keys->precision = ft_num(ft_atoi((char *)(*str)),str);
 	}
-	//добавить правило на *
 	if (ft_is_in_set("cspdiuxX%nfge", **str) == 1)
-	{
-		keys->specifier = **str;
-		(*str)++;
-	}
+		keys->specifier = ft_char(str);
 	return keys;
 }
