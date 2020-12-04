@@ -10,20 +10,16 @@
 # include <stdlib.h>
 # include "libft/libft.h"
 
+typedef struct	s_keys
+{
+	char	flags;
+	int		width;
+	float 		precision;
+	char	length;
+	char	specifier;
+}				t_keys;
 
-//typedef struct	s_ppack
-//{
-//	int		minus;
-//	int		zero;
-//	int		prec;
-//	int		width;
-//	int		wasdot;
-//	int		negprec;
-//	int		prectow;
-//	int		error;
-//	char	type;
-//}				t_ppack;
-//
+t_keys ft_init(t_keys keys);
 
 
 #endif //FT_PRINTF_FT_PRINTF_H
