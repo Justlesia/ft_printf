@@ -31,5 +31,6 @@ t_keys * ft_keys(char **str, va_list va);
 int ft_print_s(t_keys *keys, va_list va, int * bytes);
 int ft_print_c(t_keys *keys, va_list va, int * bytes);
 int ft_print_p(t_keys *keys, va_list va, int * bytes);
+int ft_print_i(t_keys *keys, va_list va, int * bytes);
 
 #endif //FT_PRINTF_FT_PRINTF_H
