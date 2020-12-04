@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 02:35:10 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 02:42:44 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ int			ft_printf(const char *str, ...)
 
 int main(void)
 {
-	char *ch = "start";
-	//char c = 'j';
+	//char *ch = "start";
+	char c = 'j';
 	//float f = 0.75;
 	int f = 1;
-	printf("%10.3s,%05.2i\n",ch,f);
-	ft_printf("%10.3s,%05.2i\n",ch,f);
+	printf("%10c,%05.2i\n",c,f);
+	ft_printf("%010c,%05.2i\n",c,f);
 	return (0);
 }
