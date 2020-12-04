@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/04 23:10:44 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/04 23:41:57 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@ int ft_parse(const char **str, va_list va, int * bytes)
 	if (keys->specifier == 's')
 		if((ft_print_s(keys, va, bytes)) < 0)
 			return -1;
+	if (keys->specifier == 'p')
+		if((ft_print_p(keys, va, bytes)) < 0)
+			return -1;
 
-//	char * g = va_arg(va,char *);
-//	printf("%s",g);
-//	printf("%d",*bytes);
-	//printf("%d", *bytes);
+
+	//pdiuxX
 	free(keys);
 	return 0;
 }
@@ -64,9 +65,9 @@ int			ft_printf(const char *str, ...)
 int main(void)
 {
 	char *ch = "start";
-	char c = 'j';
+	//char c = 'j';
 	//float f = 0.75;
 	//printf("%s%*f\n",ch,5,f);
-	ft_printf("%s ,%c",ch,c);
+	ft_printf("%s,%p",ch,&ch);
 	return (0);
 }
