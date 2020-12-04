@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:18:59 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 00:44:17 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 02:08:01 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,22 @@ char ft_char(char **str)
 	return ch;
 }
 
-int ft_num(int num,char **str)
+int ft_num(char **str)
 {
+	int num;
+
+	while(**str == '0')
+		(*str) ++;
+	num = ft_atoi((char *)(*str));
 	(*str) = (*str) + ft_strlen(ft_itoa(num));
 	return num;
 }
 
-float ft_va_arg(float num,char **str)
+int ft_va_arg(va_list va,char **str)
 {
+	int num;
+
+	num = va_arg(va, int);
 	(*str)++;
 	return num;
 }
@@ -67,16 +75,16 @@ t_keys *ft_keys(char **str, va_list va)
 	if (ft_is_in_set("-+ #0", **str) == 1)
 		keys->flags = ft_char(str);
 	if (ft_atoi((char *)(*str)) != 0 || **str == '0')
-		keys->width = ft_num(ft_atoi((char *)(*str)),str);
+		keys->width = ft_num(str);
 	if (ft_is_in_set("*", **str) == 1)
-		keys->width = ft_num(va_arg(va, int),str);
+		keys->width = ft_va_arg(va,str);
 	if (ft_is_in_set(".", **str) == 1)
 	{
 		(*str)++;
 		if ((ft_is_in_set("*", **str) == 1))
-			keys->precision = ft_num(va_arg(va, double),str);
+			keys->precision = ft_va_arg(va,str);
 		else
-			keys->precision = ft_num(ft_atoi((char *)(*str)),str);
+			keys->precision = ft_num(str);
 	}
 	if (ft_is_in_set("cspdiuxX%nfge", **str) == 1)
 		keys->specifier = ft_char(str);

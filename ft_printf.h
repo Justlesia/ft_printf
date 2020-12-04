@@ -14,7 +14,7 @@ typedef struct	s_keys
 {
 	char	flags;
 	int		width;
-	float 		precision;
+	int 		precision;
 	char	length;
 	char	specifier;
 }				t_keys;
