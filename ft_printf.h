@@ -20,6 +20,7 @@ typedef struct	s_keys
 }				t_keys;
 
 t_keys ft_init(t_keys keys);
-
+int						ft_atoi(char *str);
+int		ft_is_in_set(const char *set, char c);
 
 #endif //FT_PRINTF_FT_PRINTF_H
