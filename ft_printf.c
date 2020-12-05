@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 22:55:49 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 23:01:13 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int ft_parse(const char **str, va_list va, int * bytes)
 	t_keys *keys;
 
 	keys = ft_keys((char **)str, va);
-//	(void)va;
-//	(void)bytes;
 	if (keys->specifier == '\0')
 		return -1;
 	if (keys->specifier == 'c' || keys->specifier == '%')
