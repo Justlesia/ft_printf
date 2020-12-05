@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 02:42:44 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 22:55:49 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@ int ft_parse(const char **str, va_list va, int * bytes)
 	if (keys->specifier == 's')
 		if((ft_print_s(keys, va, bytes)) < 0)
 			return -1;
-//	if (keys->specifier == 'p')
-//		if((ft_print_p(keys, va, bytes)) < 0)
-//			return -1;
-	if (keys->specifier == 'd' || keys->specifier == 'i')
+	if (keys->specifier == 'p')
+		if((ft_print_p(keys, va, bytes)) < 0)
+			return -1;
+	if (keys->specifier == 'd' || keys->specifier == 'i' || keys->specifier == 'u')
 		if((ft_print_i(keys, va, bytes)) < 0)
 			return -1;
-
-	//uxX
+	if (keys->specifier == 'x' || keys->specifier == 'X')
+		if((ft_print_i(keys, va, bytes)) < 0)
+			return -1;
 	free(keys);
 	return 0;
 }
@@ -68,11 +69,13 @@ int			ft_printf(const char *str, ...)
 
 int main(void)
 {
-	//char *ch = "start";
-	char c = 'j';
+	char *ch = "start";
+	//char c = 'j';
 	//float f = 0.75;
-	int f = 1;
-	printf("%10c,%05.2i\n",c,f);
-	ft_printf("%010c,%05.2i\n",c,f);
+	//int f = 1;
+//	printf("%10c,%05.2i\n",c,f);
+//	ft_printf("%010c,%05.2i\n",c,f);
+	printf("%1p,%5p\n",&ch,ch);
+	ft_printf("%10p,%5p\n",&ch,ch);
 	return (0);
 }
