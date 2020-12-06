@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 14:44:08 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 16:42:35 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,21 @@ int			ft_printf(const char *str, ...)
 	va_end(va);
 	return (bytes);
 }
-//
-//int main(void)
-//{
-//	char *ch = "start";
-//	//char c = 'j';
-//	//float f1 = 0.75;
-//	//int f = 1;
-//	printf("%s\n",ch);
-//	ft_printf("%s\n",ch);
-////	printf("%10f,%+5.2i\n",f1,f);
-////	ft_printf("%10f,%+5.2i\n",f1,f);
-////	printf("%1p,%5p\n",&ch,ch);
-////	ft_printf("%10p,%5p\n",&ch,ch);
-//	return (0);
-//}
+
+int main(void)
+{
+	char *ch = "start";
+//	ch = NULL;
+	//char c = 'j';
+	//float f1 = 0.75;
+	//int f = 1;
+//	printf("%32s\n", "abc");
+//	ft_printf("%32s", "abc");
+//	printf("%10f,%+5.2i\n",f1,f);
+//	ft_printf("%10f,%+5.2i\n",f1,f);
+	printf("%1p,%5p\n",&ch,ch);
+	ft_printf("%10p,%5p\n",&ch,ch);
+	printf("%-10s\n",NULL);
+	ft_printf("%-10s\n",NULL);
+	return (0);
+}

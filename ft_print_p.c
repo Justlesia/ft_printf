@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 21:00:24 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 21:20:16 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int ft_print_p(t_keys *keys, va_list va, int * bytes)
 	len = ft_strlen(str);
 	write(1, str, len);
 	(*bytes) = (*bytes) + len;
+	free(str);
 	return 0;
 }

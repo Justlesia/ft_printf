@@ -48,11 +48,14 @@ char ft_char(char **str)
 int ft_num(char **str)
 {
 	int num;
+	char *tmp;
 
 	while(**str == '0')
 		(*str) ++;
 	num = ft_atoi((char *)(*str));
-	(*str) = (*str) + ft_strlen(ft_itoa(num));
+	tmp = ft_itoa(num);
+	(*str) = (*str) + ft_strlen(tmp);
+	free(tmp);
 	return num;
 }
 

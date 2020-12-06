@@ -36,4 +36,5 @@ char			*ft_itoa_16(unsigned long num);
 int						ft_atoi(char *str);
 size_t	ft_strlen(const char *s);
 int ft_is_in_set(const char *set, char c);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
 #endif //FT_PRINTF_FT_PRINTF_H

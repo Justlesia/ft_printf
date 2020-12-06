@@ -18,7 +18,7 @@ HEADER = ft_printf.h
 #LIBFTDIR = libft
 #LIBFTNAME = libft.a
 
-SRC = ft_printf.c ft_keys.c ft_atoi.c ft_strlen.c ft_print_s.c ft_print_c.c \
+SRC = ft_printf.c ft_keys.c ft_atoi.c ft_strlen.c ft_print_s.c ft_print_x.c ft_print_c.c \
               ft_print_p.c  ft_print_i.c ft_itoa.c ft_itoa_16.c
 #parser.c print_utils.c \
 	print_di.c print_perc.c print_u.c print_hex.c \

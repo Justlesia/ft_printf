@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 23:09:30 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 01:25:23 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 16:14:40 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,21 @@ int						ft_atoi(char *str)
 			return (0);
 	}
 	return (nb * m);
+}
+
+
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	unsigned long l;
+
+	l = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	while (l < n)
+	{
+		((char *)dst)[l] = ((char *)src)[l];
+		l++;
+	}
+	return (dst);
 }

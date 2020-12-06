@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 14:27:59 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 14:49:25 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int ft_print_i(t_keys *keys, va_list va, int * bytes)
 	int f;
 	char w_padding;
 
-	str = ft_itoa(va_arg(va,int));
+	if (!(len = va_arg(va,int)))
+		return -1;
+
+	str = ft_itoa(len);
 	len = ft_strlen(str);
 
 	f = 0;
@@ -56,5 +59,6 @@ int ft_print_i(t_keys *keys, va_list va, int * bytes)
 	}
 	write(1, str, len);
 	(*bytes) = (*bytes) + len;
+	free(str);
 	return 0;
 }
