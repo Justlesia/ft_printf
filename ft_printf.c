@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 16:42:35 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 17:13:54 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int			ft_printf(const char *str, ...)
 
 int main(void)
 {
-	char *ch = "start";
+	//char *ch = "start";
 //	ch = NULL;
 	//char c = 'j';
 	//float f1 = 0.75;
@@ -76,9 +76,12 @@ int main(void)
 //	ft_printf("%32s", "abc");
 //	printf("%10f,%+5.2i\n",f1,f);
 //	ft_printf("%10f,%+5.2i\n",f1,f);
-	printf("%1p,%5p\n",&ch,ch);
-	ft_printf("%10p,%5p\n",&ch,ch);
-	printf("%-10s\n",NULL);
-	ft_printf("%-10s\n",NULL);
+	printf("%.s\n", "hello");
+	ft_printf("%.s\n", "hello");
+//	printf("%.7s%.2s\n", "hello", "world");
+//	ft_printf("%.7s%.2s\n", "hello", "world");
+//	printf("%.5s%7s\n", "yo", "boi");
+//	ft_printf("%.5s%7s\n", "yo", "boi");
+
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:18:59 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 02:08:01 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 17:24:54 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ int ft_num(char **str)
 		(*str) ++;
 	num = ft_atoi((char *)(*str));
 	tmp = ft_itoa(num);
-	(*str) = (*str) + ft_strlen(tmp);
+	if (num != 0)
+		(*str) = (*str) + ft_strlen(tmp);
 	free(tmp);
 	return num;
 }
