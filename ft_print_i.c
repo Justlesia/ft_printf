@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 02:47:42 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 14:27:59 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,42 @@ int ft_print_i(t_keys *keys, va_list va, int * bytes)
 	char *str;
 	int p;
 	int w;
+	int f;
+	char w_padding;
 
 	str = ft_itoa(va_arg(va,int));
 	len = ft_strlen(str);
 
+	f = 0;
+	if (ft_is_in_set((" +"),((*keys).flags)) && str[0] != '-')
+		f = 1;
 	p = 0;
 	if ((*keys).precision > 0)
 		p = (*keys).precision - len;
 	if ((*keys).width > 0)
 	{
 		if ((*keys).flags != '0' || p > 0)
-			(*keys).flags = ' ';
+			w_padding = ' ';
+		else
+			w_padding = '0';
 		w = (*keys).width - len;
-		(*bytes) = (*bytes) + w;
-		while (w-- > p)
-			write(1, &((*keys).flags), 1);
+		while (w-- > (p + f))
+		{
+			write(1, &(w_padding), 1);
+			(*bytes) ++;
+		}
+	}
+	while (f-- > 0)
+	{
+		write(1, &((*keys).flags), 1);
+		(*bytes) ++;
 	}
 	while (p-- > 0)
+	{
 		write(1, "0", 1);
-
+		(*bytes) ++;
+	}
 	write(1, str, len);
-	//((*keys).width - len) может быть -1 на это проверки нетж
-	(*bytes) = (*bytes) + len + w + ((*keys).width - len);
+	(*bytes) = (*bytes) + len;
 	return 0;
 }

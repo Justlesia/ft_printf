@@ -8,7 +8,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/libft.h"
 
 typedef struct	s_keys
 {
@@ -32,6 +31,9 @@ int ft_print_s(t_keys *keys, va_list va, int * bytes);
 int ft_print_c(t_keys *keys, va_list va, int * bytes);
 int ft_print_p(t_keys *keys, va_list va, int * bytes);
 int ft_print_i(t_keys *keys, va_list va, int * bytes);
-int ft_print_x(t_keys *keys, va_list va, int * bytes)
+int ft_print_x(t_keys *keys, va_list va, int * bytes);
 char			*ft_itoa_16(unsigned long num);
+int						ft_atoi(char *str);
+size_t	ft_strlen(const char *s);
+int ft_is_in_set(const char *set, char c);
 #endif //FT_PRINTF_FT_PRINTF_H

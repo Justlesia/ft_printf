@@ -10,12 +10,16 @@
 #*                                                                            *#
 #* ************************************************************************** *#
 
-NAME = libft.a
-HEADER = ft_printf.h
-LIBFTDIR = libft
-LIBFTNAME = libft.a
 
-SRC = ft_printf.c
+
+
+NAME = libftprintf.a
+HEADER = ft_printf.h
+#LIBFTDIR = libft
+#LIBFTNAME = libft.a
+
+SRC = ft_printf.c ft_keys.c ft_atoi.c ft_strlen.c ft_print_s.c ft_print_c.c \
+              ft_print_p.c  ft_print_i.c ft_itoa.c ft_itoa_16.c
 #parser.c print_utils.c \
 	print_di.c print_perc.c print_u.c print_hex.c \
 	print_sc.c print_p.c
@@ -25,24 +29,20 @@ CFLAGS = -Wall -Wextra -Werror
 
 OBJ = $(SRC:.c=.o)
 
-%.o : %.c $(HEADER)
-	@$(CC) $(CFLAGS) -c $< -o $@
-
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	@make -C $(LIBFTDIR)
-	@cp $(LIBFTDIR)/$(LIBFTNAME) $@
-	@ar rc $@ $(OBJ)
-	@ranlib $@
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+
+%.o : %.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@/bin/rm -f $(OBJ)
-	@make -C $(LIBFTDIR) clean
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@make -C $(LIBFTDIR) fclean
 
 re: fclean all
 

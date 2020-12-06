@@ -6,12 +6,11 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 21:47:46 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/05 22:47:45 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/05 22:50:54 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
-#include "libft.h"
 
 static char		*ft_res(int i, const char *temp)
 {

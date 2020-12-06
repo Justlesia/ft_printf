@@ -23,7 +23,7 @@ static t_keys ft_init(t_keys keys)
 	return keys;
 }
 
-static int ft_is_in_set(const char *set, char c)
+int ft_is_in_set(const char *set, char c)
 {
 	int n;
 

@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 # include "ft_printf.h"
-#include "libft.h"
 
 static char		*ft_res(int minus, int i, const char *temp)
 {
