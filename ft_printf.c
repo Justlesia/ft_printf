@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 22:24:06 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 23:00:34 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int			ft_printf(const char *str, ...)
 	va_end(va);
 	return (bytes);
 }
-//
+
 //
 //int main(void)
 //{
@@ -77,10 +77,10 @@ int			ft_printf(const char *str, ...)
 ////	ft_printf("%32s", "abc");
 ////	printf("%10f,%+5.2i\n",f1,f);
 ////	ft_printf("%10f,%+5.2i\n",f1,f);
-//	printf("\'%3.0i\'\n", 1);
-//	ft_printf("\'%3.0i\'\n", 1);
-//	printf("\'%-3.0i\'\n", 1);
-//	ft_printf("\'%-3.0i\'\n", 1);
+//	printf("%0-8.5i\n", 0);
+//	ft_printf("%0-8.5i", 0);
+////	printf("\'%-3.0i\'\n", 1);
+////	ft_printf("\'%-3.0i\'\n", 1);
 ////	printf("%.7s%.2s\n", "hello", "world");
 ////	ft_printf("%.7s%.2s\n", "hello", "world");
 ////	printf("%.5s%7s\n", "yo", "boi");

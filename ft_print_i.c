@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 22:23:44 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 22:55:58 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,23 +58,31 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 	int tmp;
 	char *str;
 	int len;
+	int n;
 
 	tmp = va_arg(va, int);
 	str = ft_itoa(tmp);
 	len = ft_strlen(str);
 
+
+	n = 0;
+	if (str[0] == '-')
+	{
+		write(1, "-", 1);
+		n++;
+		len--;
+	}
 	if ((*keys).flags != '-')
 		ft_i_padding(keys, bytes, len, str[0]);
 
-	if ( (*keys).flags != 0 || tmp != 0)
+	if ( (*keys).precision == 0 && tmp == 0)
+		write(1, " ", 1);
+	else
 	{
-		write(1, str, len);
+		write(1, &(str[n]), len);
 		(*bytes) = (*bytes) + len;
 		free(str);
 	}
-	else
-		write(1, " ", 1);
-
 
 	if ((*keys).flags == '-')
 		ft_i_padding(keys, bytes, len, str[0]);
