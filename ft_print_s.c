@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 17:13:25 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 22:16:26 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ int ft_print_s(t_keys *keys, va_list va, int *bytes)
 		leak = 1;
 	}
 	len = ft_strlen(str);
-	if (len > 0)
+	if (len > 0 || str[0]  == '\0')
 	{
+//		if ((*keys).precision == -2)
+//			(*keys).precision = 0;
 		if ((*keys).precision >= 0 && (*keys).precision < len)
 			len = (*keys).precision;
 		if ((*keys).width > 0 && (*keys).flags != '-')

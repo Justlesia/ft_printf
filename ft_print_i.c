@@ -6,30 +6,23 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 14:49:25 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 22:23:44 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
 # include <stdio.h>
 
-int ft_print_i(t_keys *keys, va_list va, int * bytes)
+void ft_i_padding(t_keys *keys, int *bytes, int len, char first)
 {
-	int len;
-	char *str;
 	int p;
 	int w;
 	int f;
 	char w_padding;
 
-	if (!(len = va_arg(va,int)))
-		return -1;
-
-	str = ft_itoa(len);
-	len = ft_strlen(str);
-
+	w = 0;
 	f = 0;
-	if (ft_is_in_set((" +"),((*keys).flags)) && str[0] != '-')
+	if (ft_is_in_set((" +"), ((*keys).flags)) && first != '-')
 		f = 1;
 	p = 0;
 	if ((*keys).precision > 0)
@@ -41,24 +34,50 @@ int ft_print_i(t_keys *keys, va_list va, int * bytes)
 		else
 			w_padding = '0';
 		w = (*keys).width - len;
-		while (w-- > (p + f))
-		{
-			write(1, &(w_padding), 1);
-			(*bytes) ++;
-		}
+	}
+	while (w-- > (p + f))
+	{
+		write(1, &(w_padding), 1);
+		(*bytes)++;
 	}
 	while (f-- > 0)
 	{
 		write(1, &((*keys).flags), 1);
-		(*bytes) ++;
+		(*bytes)++;
 	}
 	while (p-- > 0)
 	{
 		write(1, "0", 1);
-		(*bytes) ++;
+		(*bytes)++;
 	}
-	write(1, str, len);
-	(*bytes) = (*bytes) + len;
-	free(str);
+}
+
+
+int ft_print_i(t_keys *keys, va_list va, int *bytes)
+{
+	int tmp;
+	char *str;
+	int len;
+
+	tmp = va_arg(va, int);
+	str = ft_itoa(tmp);
+	len = ft_strlen(str);
+
+	if ((*keys).flags != '-')
+		ft_i_padding(keys, bytes, len, str[0]);
+
+	if ( (*keys).flags != 0 || tmp != 0)
+	{
+		write(1, str, len);
+		(*bytes) = (*bytes) + len;
+		free(str);
+	}
+	else
+		write(1, " ", 1);
+
+
+	if ((*keys).flags == '-')
+		ft_i_padding(keys, bytes, len, str[0]);
+
 	return 0;
 }

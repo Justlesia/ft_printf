@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:18:59 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 17:24:54 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 22:16:27 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ t_keys *ft_keys(char **str, va_list va)
 	if (ft_is_in_set(".", **str) == 1)
 	{
 		(*str)++;
+//		if ((ft_is_in_set("cspdiuxX%nfge", **str) == 1))
+//			keys->precision = -2;
 		if ((ft_is_in_set("*", **str) == 1))
 			keys->precision = ft_va_arg(va,str);
 		else
