@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 23:17:22 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/06 23:32:59 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void ft_i_padding(t_keys *keys, int *bytes, int *len, char first)
 	p = 0;
 	if ((*keys).precision > 0)
 		p = (*keys).precision - *(len);
+	if ((*keys).precision == 0)
+		p = -1;
 	if ((*keys).width > 0)
 	{
 		if ((*keys).flags != '0' || p > 0)
@@ -78,9 +80,7 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 		ft_i_padding(keys, bytes, &len, str[0]);
 	}
 
-	if ((*keys).precision == 0 && tmp == 0)
-		write(1, " ", 1);
-	else
+	if ((*keys).precision != 0 || tmp != 0)
 	{
 		write(1, &(str[n]), len);
 		(*bytes) = (*bytes) + len;

@@ -6,12 +6,12 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 23:14:29 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/10 15:06:30 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
-# include <stdio.h>
+
 
 int ft_parse(const char **str, va_list va, int * bytes)
 {
@@ -63,28 +63,4 @@ int			ft_printf(const char *str, ...)
 	}
 	va_end(va);
 	return (bytes);
-}
-
-
-int main(void)
-{
-	//char *ch = "start";
-//	ch = NULL;
-	//char c = 'j';
-	//float f1 = 0.75;
-	//int f = 1;
-//	printf("%32s\n", "abc");
-//	ft_printf("%32s", "abc");
-//	printf("%10f,%+5.2i\n",f1,f);
-//	ft_printf("%10f,%+5.2i\n",f1,f);
-	printf("%7i\n", -2562);
-	ft_printf("%7i", -2562);
-//	printf("\'%-3.0i\'\n", 1);
-//	ft_printf("\'%-3.0i\'\n", 1);
-//	printf("%.7s%.2s\n", "hello", "world");
-//	ft_printf("%.7s%.2s\n", "hello", "world");
-	printf("%.0i", 0);
-	ft_printf("%.0i", 0);
-
-	return (0);
 }
