@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 17:30:44 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 17:54:58 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void ft_i_padding(t_keys *keys, int *bytes, int *len, char first)
 		(*len)--;
 		(*bytes)++;
 	}
-	while (w-- > (p + f) && w >= 0)
+	while (w-- > (p + f) && w >= 0 && w_padding != 0  )
 	{
 		write(1, &(w_padding), 1);
 		(*bytes)++;
@@ -57,7 +57,7 @@ void ft_i_padding(t_keys *keys, int *bytes, int *len, char first)
 		write(1, &((*keys).flags), 1);
 		(*bytes)++;
 	}
-	if (first == '-' && (*keys).flags != '-' && ((*keys).precision != -1 || w_padding != '0' ))
+	if (first == '-' && (*keys).flags != '-' && ((*keys).precision != -1 || w_padding != '0'))
 	{
 		write(1, "-", 1);
 		(*len)--;
@@ -114,7 +114,7 @@ void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 //		write(1, &((*keys).flags), 1);
 //		(*bytes)++;
 //	}
-	while ((p--+n) > 0 && (*keys).precision >= 0)
+	while ((p-- + n) > 0 && (*keys).precision >= 0)
 	{
 		write(1, "0", 1);
 		//if (p > 0)
@@ -122,11 +122,11 @@ void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 	}
 	if ((*keys).precision != 0 || str[0] != '0')
 	{
-		write(1, &(str[n]), (*len - n) );
-		(*bytes) = (*bytes) + (*len-n);
+		write(1, &(str[n]), (*len - n));
+		(*bytes) = (*bytes) + (*len - n);
 		//free(str);
 	}
-		while (w-- > ((*keys).precision - *(len) + n) && w >= 0)
+	while (w-- > ((*keys).precision - *(len) + n) && w >= 0)
 	{
 		write(1, &(w_padding), 1);
 		(*bytes)++;
@@ -144,26 +144,25 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 	str = ft_itoa(tmp);
 	len = ft_strlen(str);
 
-
 	n = 0;
-	if ((*keys).flags != '-')
-	{
-		if (str[0] == '-')
-			n++;
-		ft_i_padding(keys, bytes, &len, str[0]);
-		if ((*keys).precision != 0 || tmp != 0)
-		{
-			write(1, &(str[n]), len);
-			(*bytes) = (*bytes) + len;
-			free(str);
-		}
-	}
+//	if ((*keys).precision != 0 || tmp != 0)
 
-	if ((*keys).flags == '-')
-	{
-		ft_i_padding_rev(keys, bytes, str, &len);
-		//if ((*keys).precision != 0 || tmp != 0)
-		free(str);
-	}
+		if ((*keys).flags != '-')
+		{
+			if (str[0] == '-')
+				n++;
+			ft_i_padding(keys, bytes, &len, str[0]);
+			if ((*keys).precision != 0 || str[0] != '0')
+			{
+				write(1, &(str[n]), len);
+				(*bytes) = (*bytes) + len;
+			}
+		}
+		if ((*keys).flags == '-')
+		{
+			ft_i_padding_rev(keys, bytes, str, &len);
+		}
+
+	free(str);
 	return 0;
 }

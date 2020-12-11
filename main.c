@@ -31,17 +31,17 @@ int main(void)
 //	printf("%-3.7i\n", 3267);
 //	ft_printf("%-3.7i\n", 3267);
 
-	printf("%-8.5i\'\n", 34);
-	ft_printf("%-8.5i\'\n", 34);
-	printf("%-10.5i\'\n", -216);
-	ft_printf("%-10.5i\'\n", -216);
-	printf("%-8.5i\'\n", 0);
-	ft_printf("%-8.5i\'\n", 0);
-	printf("%-7i\'\n", -14);
-	ft_printf("%-7i\'\n", -14);
+//	printf("%-8.5i\'\n", 34);
+//	ft_printf("%-8.5i\'\n", 34);
+//	printf("%-10.5i\'\n", -216);
+//	ft_printf("%-10.5i\'\n", -216);
+//	printf("%-8.5i\'\n", 0);
+//	ft_printf("%-8.5i\'\n", 0);
+//	printf("%-7i\'\n", -14);
+//	ft_printf("%-7i\'\n", -14);
 
-//	printf("%-3.7i\n", 3267);
-//	ft_printf("%-3.7i\n", 3267);
+	//printf("%.i\'\n", 0);
+	ft_printf("%.i", 0);
 //	printf("%-3.7i\n", 3267);
 //	ft_printf("%-3.7i\n", 3267);
 //	printf("%-3.7i\n", 3267);
@@ -51,8 +51,5 @@ int main(void)
 ////	ft_printf("%.7s%.2s\n", "hello", "world");
 //	printf("'%.0i'\n", 0);
 //	ft_printf("'%.0i'\n", 0);
-
-
-
 	return (0);
 }
