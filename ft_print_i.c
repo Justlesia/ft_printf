@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 20:39:50 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 20:58:01 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,9 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 	tmp = va_arg(va, long);
 
 	if ( (*keys).specifier == 'x')
-		str = ft_itoa_16(tmp);
+		str = ft_itoa_16(tmp, 32);
+	else if ( (*keys).specifier == 'X')
+		str = ft_itoa_16(tmp, 0);
 	else
 		str = ft_itoa(tmp);
 
@@ -157,14 +159,9 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 			str = ft_strdup("4294967295");
 		}
 	}
-
-
 	len = ft_strlen(str);
-
 	n = 0;
-//	if ((*keys).precision != 0 || tmp != 0)
-
-		if ((*keys).flags != '-')
+	if ((*keys).flags != '-')
 		{
 			if (str[0] == '-')
 				n++;
@@ -179,7 +176,6 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 		{
 			ft_i_padding_rev(keys, bytes, str, &len);
 		}
-
 	free(str);
 	return 0;
 }

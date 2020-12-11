@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 20:12:12 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 20:14:39 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ int ft_print_x(t_keys *keys, va_list va, int *bytes)
 	int n;
 
 	tmp = va_arg(va, long);
-	str = ft_itoa_16(tmp);
+	str = ft_itoa_16(tmp, 32);
 	len = ft_strlen(str);
 
 	n = 0;

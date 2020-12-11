@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 21:47:46 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 20:32:47 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 20:38:28 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char		*ft_res(int i, const char *temp)
 	return (res);
 }
 
-char			*ft_itoa_16(unsigned long num)
+char			*ft_itoa_16(unsigned long num, int dop)
 {
 	char		temp[200];
 	int			i;
@@ -40,14 +40,14 @@ char			*ft_itoa_16(unsigned long num)
 	{
 		tmp = (num % 16) ;
 		if (tmp > 9)
-			tmp = tmp + 39;
+			tmp = tmp + 7 + dop;
 		temp[i] = tmp + '0';
 		num = num / 16;
 		i++;
 	}
 	tmp = (num % 16);
 	if (tmp > 9)
-		tmp = tmp + 39;
+		tmp = tmp + 7 + dop;
 	temp[i] = tmp + '0';
 	i++;
 	if (num == 16)

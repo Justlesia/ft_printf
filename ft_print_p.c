@@ -21,7 +21,7 @@ int ft_print_p(t_keys *keys, va_list va, int * bytes)
 	char *str;
 
 	address = (int) va_arg(va,void * );
-	str = ft_itoa_16(address);
+	str = ft_itoa_16(address, 32);
 	len = ft_strlen(str);
 	write(1, str, len);
 	(*bytes) = (*bytes) + len;

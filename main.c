@@ -43,9 +43,11 @@ int main(void)
 	//printf("%.i\'\n", 0);
 	//ft_printf("%.i", 0);
 //	printf("%u\n", 4294967295u);
-	ft_printf("%u", 4294967295u);
-//	printf("%-3.7i\n", 3267);
-//	ft_printf("%-3.7i\n", 3267);
+//	ft_printf("%u", 4294967295u);
+
+
+	printf("%-3.7i\n", 3267);
+	ft_printf("%-3.7i\n", 3267);
 
 ////	printf("%.7s%.2s\n", "hello", "world");
 ////	ft_printf("%.7s%.2s\n", "hello", "world");

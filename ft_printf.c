@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/10 15:06:30 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 20:47:20 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ int ft_parse(const char **str, va_list va, int * bytes)
 	if (keys->specifier == 's')
 		if((ft_print_s(keys, va, bytes)) < 0)
 			return -1;
-//	if (keys->specifier == 'p')
-//		if((ft_print_p(keys, va, bytes)) < 0)
-//			return -1;
-	if (keys->specifier == 'd' || keys->specifier == 'i' || keys->specifier == 'u' || keys->specifier == 'x')
+	if (keys->specifier == 'p')
+		if((ft_print_p(keys, va, bytes)) < 0)
+			return -1;
+	if (keys->specifier == 'd' || keys->specifier == 'i'
+	|| keys->specifier == 'u' || keys->specifier == 'x' || keys->specifier == 'X' )
 		if((ft_print_i(keys, va, bytes)) < 0)
 			return -1;
-	if (keys->specifier == 'p' || keys->specifier == 'X')
-		if((ft_print_x(keys, va, bytes)) < 0)
-			return -1;
+//	if (keys->specifier == 'p' || keys->specifier == 'X')
+//		if((ft_print_x(keys, va, bytes)) < 0)
+//			return -1;
 	free(keys);
 	return 0;
 }
