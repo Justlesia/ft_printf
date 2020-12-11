@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/10 16:08:46 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 22:25:20 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int ft_s_padding(t_keys *keys, int bytes, int len)
 	}
 	return bytes++;
 }
-
 
 char	*ft_strdup(const char *s)
 {
@@ -55,12 +54,36 @@ int ft_print_s(t_keys *keys, va_list va, int *bytes)
 	char *str;
 	int leak;
 
+	unsigned long address;
+	char *tmp;
+
 	leak = 0;
-	if (!(str = va_arg(va, char *)))
+
+
+	if (keys->specifier == 'p')
 	{
-		str = ft_strdup(("(null)"));
+		address = (unsigned long) va_arg(va,void * );
+		tmp = ft_itoa_16(address, 32);
+		str = ft_strjoin("0x", tmp);
+		free(tmp);
 		leak = 1;
 	}
+	else if ( (*keys).specifier == '%'){
+		str = ft_strdup("%");
+		leak = 1;
+	}
+	else
+	{
+		if (!(str = va_arg(va, char *)))
+		{
+			str = ft_strdup(("(null)"));
+			leak = 1;
+		}
+	}
+
+
+
+
 	len = ft_strlen(str);
 	if (len > 0 || str[0]  == '\0')
 	{

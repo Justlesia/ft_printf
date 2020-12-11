@@ -46,12 +46,19 @@ int main(void)
 //	ft_printf("%u", 4294967295u);
 
 
-	printf("%-3.7i\n", 3267);
-	ft_printf("%-3.7i\n", 3267);
+//	printf("%-05%\n");
+//	ft_printf("%-05%\n");
 
 ////	printf("%.7s%.2s\n", "hello", "world");
 ////	ft_printf("%.7s%.2s\n", "hello", "world");
-//	printf("'%.0i'\n", 0);
-//	ft_printf("'%.0i'\n", 0);
+
+char * it = "it";
+
+	printf("'%p'\n", NULL);
+	ft_printf("'%p'\n", NULL);
+	printf("'%p'\n", it);
+	ft_printf("'%p'\n", it);
+	printf("'%p'\n", &it);
+	ft_printf("'%p'\n", &it);
 	return (0);
 }

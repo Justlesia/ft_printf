@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 20:47:20 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 22:25:58 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ int ft_parse(const char **str, va_list va, int * bytes)
 	keys = ft_keys((char **)str, va);
 	if (keys->specifier == '\0')
 		return -1;
-	if (keys->specifier == 'c' || keys->specifier == '%')
+	if (keys->specifier == 'c')
 		if((ft_print_c(keys, va, bytes)) < 0)
 			return -1;
-	if (keys->specifier == 's')
+	if (keys->specifier == 's' || keys->specifier == 'p')
 		if((ft_print_s(keys, va, bytes)) < 0)
 			return -1;
-	if (keys->specifier == 'p')
-		if((ft_print_p(keys, va, bytes)) < 0)
-			return -1;
-	if (keys->specifier == 'd' || keys->specifier == 'i'
-	|| keys->specifier == 'u' || keys->specifier == 'x' || keys->specifier == 'X' )
+//	if (keys->specifier == 'p')
+//		if((ft_print_p(keys, va, bytes)) < 0)
+//			return -1;
+	if (keys->specifier == 'd' || keys->specifier == 'i'  || keys->specifier == '%'
+|| keys->specifier == 'u' || keys->specifier == 'x' || keys->specifier == 'X' )
 		if((ft_print_i(keys, va, bytes)) < 0)
 			return -1;
 //	if (keys->specifier == 'p' || keys->specifier == 'X')

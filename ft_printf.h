@@ -24,7 +24,7 @@ typedef struct	s_keys
 
 
 size_t	ft_strlen(const char *s);
-char			*ft_itoa(int n);
+char			*ft_itoa( int n);
 
 t_keys * ft_keys(char **str, va_list va);
 int ft_print_s(t_keys *keys, va_list va, int * bytes);
@@ -39,4 +39,5 @@ int ft_is_in_set(const char *set, char c);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 int			ft_printf(const char *str, ...);
 char	*ft_strdup(const char *s);
+char		*ft_strjoin(char const *s1, char const *s2);
 #endif //FT_PRINTF_FT_PRINTF_H

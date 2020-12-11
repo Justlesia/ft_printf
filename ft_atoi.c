@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 23:09:30 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 18:15:36 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 18:16:33 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,3 +85,32 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 
+
+char		*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t		n;
+	size_t		s1_len;
+	size_t		s2_len;
+	char		*res;
+
+	if (!s1 || !s2)
+		return (NULL);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	if (!(res = (char *)malloc((s1_len + s2_len))))
+		return (NULL);
+	n = 0;
+	while (n < s1_len)
+	{
+		res[n] = s1[n];
+		n++;
+	}
+	n = 0;
+	while (n < s2_len)
+	{
+		res[n + s1_len] = s2[n];
+		n++;
+	}
+	res[n + s1_len] = '\0';
+	return (res);
+}

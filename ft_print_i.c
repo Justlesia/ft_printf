@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 20:58:01 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 22:21:58 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,20 +140,24 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 	int len;
 	int n;
 
-	tmp = va_arg(va, long);
+	if ((*keys).specifier == '%')
+		tmp = 0;
+	else
+		tmp = va_arg(va, long);
 
 	if ( (*keys).specifier == 'x')
 		str = ft_itoa_16(tmp, 32);
 	else if ( (*keys).specifier == 'X')
 		str = ft_itoa_16(tmp, 0);
+	else if ( (*keys).specifier == '%')
+		str = ft_strdup("%");
 	else
 		str = ft_itoa(tmp);
-
-	if ( (*keys).specifier == 'u')
+	if ((*keys).specifier == 'u')
 	{
 		if (tmp < 0)
 			return (-1);
-		if (tmp == 4294967295)
+		if (tmp  == 4294967295)
 		{
 			free(str);
 			str = ft_strdup("4294967295");
