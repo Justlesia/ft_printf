@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 18:12:56 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 20:39:50 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,11 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 	int n;
 
 	tmp = va_arg(va, long);
-	str = ft_itoa(tmp);
+
+	if ( (*keys).specifier == 'x')
+		str = ft_itoa_16(tmp);
+	else
+		str = ft_itoa(tmp);
 
 	if ( (*keys).specifier == 'u')
 	{

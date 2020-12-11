@@ -26,13 +26,13 @@ int ft_parse(const char **str, va_list va, int * bytes)
 	if (keys->specifier == 's')
 		if((ft_print_s(keys, va, bytes)) < 0)
 			return -1;
-	if (keys->specifier == 'p')
-		if((ft_print_p(keys, va, bytes)) < 0)
-			return -1;
-	if (keys->specifier == 'd' || keys->specifier == 'i' || keys->specifier == 'u')
+//	if (keys->specifier == 'p')
+//		if((ft_print_p(keys, va, bytes)) < 0)
+//			return -1;
+	if (keys->specifier == 'd' || keys->specifier == 'i' || keys->specifier == 'u' || keys->specifier == 'x')
 		if((ft_print_i(keys, va, bytes)) < 0)
 			return -1;
-	if (keys->specifier == 'x' || keys->specifier == 'X')
+	if (keys->specifier == 'p' || keys->specifier == 'X')
 		if((ft_print_x(keys, va, bytes)) < 0)
 			return -1;
 	free(keys);
