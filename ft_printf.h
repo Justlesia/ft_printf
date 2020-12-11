@@ -38,4 +38,5 @@ size_t	ft_strlen(const char *s);
 int ft_is_in_set(const char *set, char c);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 int			ft_printf(const char *str, ...);
+char	*ft_strdup(const char *s);
 #endif //FT_PRINTF_FT_PRINTF_H

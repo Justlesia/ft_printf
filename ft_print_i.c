@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 17:54:58 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 18:12:56 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,13 +135,26 @@ void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 
 int ft_print_i(t_keys *keys, va_list va, int *bytes)
 {
-	int tmp;
+	long tmp;
 	char *str;
 	int len;
 	int n;
 
-	tmp = va_arg(va, int);
+	tmp = va_arg(va, long);
 	str = ft_itoa(tmp);
+
+	if ( (*keys).specifier == 'u')
+	{
+		if (tmp < 0)
+			return (-1);
+		if (tmp == 4294967295)
+		{
+			free(str);
+			str = ft_strdup("4294967295");
+		}
+	}
+
+
 	len = ft_strlen(str);
 
 	n = 0;

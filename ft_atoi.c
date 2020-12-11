@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 23:09:30 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/06 16:14:40 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 18:15:36 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,3 +84,4 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	}
 	return (dst);
 }
+

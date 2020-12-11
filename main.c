@@ -41,9 +41,9 @@ int main(void)
 //	ft_printf("%-7i\'\n", -14);
 
 	//printf("%.i\'\n", 0);
-	ft_printf("%.i", 0);
-//	printf("%-3.7i\n", 3267);
-//	ft_printf("%-3.7i\n", 3267);
+	//ft_printf("%.i", 0);
+//	printf("%u\n", 4294967295u);
+	ft_printf("%u", 4294967295u);
 //	printf("%-3.7i\n", 3267);
 //	ft_printf("%-3.7i\n", 3267);
 
