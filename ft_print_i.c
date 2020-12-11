@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 17:30:06 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 17:30:44 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,9 +131,6 @@ void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 		write(1, &(w_padding), 1);
 		(*bytes)++;
 	}
-
-
-
 }
 
 int ft_print_i(t_keys *keys, va_list va, int *bytes)

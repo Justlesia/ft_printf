@@ -76,7 +76,7 @@ t_keys *ft_keys(char **str, va_list va)
 	if (!(keys = (t_keys *)malloc(sizeof(t_keys))))
 		return NULL;
 	*keys = ft_init(*keys);
-	if (ft_is_in_set("-+ #0", **str) == 1)
+	while (ft_is_in_set("-+ #0", **str) == 1)
 		keys->flags = ft_char(str);
 	if (ft_atoi((char *)(*str)) != 0 || **str == '0')
 		keys->width = ft_num(str);
