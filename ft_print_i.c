@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 22:21:58 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/12 00:14:50 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,22 +135,43 @@ void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 
 int ft_print_i(t_keys *keys, va_list va, int *bytes)
 {
-	long tmp;
+	//long tmp;
 	char *str;
 	int len;
 	int n;
 
+	char *tmp2;
+	signed long long tmp;
+
 	if ((*keys).specifier == '%')
 		tmp = 0;
+	else if (keys->specifier == 'p')
+	{
+		tmp = (unsigned long) va_arg(va,void * );
+	}
 	else
 		tmp = va_arg(va, long);
-
-	if ( (*keys).specifier == 'x')
+	if (keys->specifier == 'p')
+	{
+		if (keys->precision == 0)
+		{
+			str = ft_strdup("0x");
+			keys->precision = -1;
+		}
+		else {
+			tmp2 = ft_itoa_16(tmp, 32);
+			str = ft_strjoin("0x", tmp2);
+			free(tmp2);
+		}
+	}
+	else if ( (*keys).specifier == 'x')
 		str = ft_itoa_16(tmp, 32);
 	else if ( (*keys).specifier == 'X')
 		str = ft_itoa_16(tmp, 0);
 	else if ( (*keys).specifier == '%')
 		str = ft_strdup("%");
+	else if ( (*keys).specifier == 'u')
+		str = ft_itoa_u(tmp);
 	else
 		str = ft_itoa(tmp);
 	if ((*keys).specifier == 'u')
@@ -170,8 +191,7 @@ int ft_print_i(t_keys *keys, va_list va, int *bytes)
 			if (str[0] == '-')
 				n++;
 			ft_i_padding(keys, bytes, &len, str[0]);
-			if ((*keys).precision != 0 || str[0] != '0')
-			{
+			if ((*keys).precision != 0 || str[0] != '0'){
 				write(1, &(str[n]), len);
 				(*bytes) = (*bytes) + len;
 			}

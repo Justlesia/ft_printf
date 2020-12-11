@@ -6,31 +6,32 @@
 
 # include <stdio.h>
 #include "ft_printf.h"
+# include <limits.h>
 
 int main(void)
 {
-	//char *ch = "start";
-//	ch = NULL;
-	//char c = 'j';
-	//float f1 = 0.75;
-	//int f = 1;
-//	printf("%7.3s%7.7sfin\n", "hello", "world");
-//	ft_printf("%7.3s%7.7sfin\n", "hello", "world");
-//	printf("%.6i\n", -3);
-//	ft_printf("%.6i\n", -3);
-//	printf("%07i\n", -54);
-//	ft_printf("%07i\n", -54);
-//	printf("%7i\n", -14);
-//	ft_printf("%7i\n", -14);
-//	printf("%7i\n", -2562);
-//	ft_printf("%7i\n", -2562);
-//	printf("\'%5.i\'\n", 0);
-//	ft_printf("\'%5.i\'\n", 0);
-//	printf("this %i number\n", -267);
-//	ft_printf("this %i number\n", -267);
+//	//char *ch = "start";
+////	ch = NULL;
+//	//char c = 'j';
+//	//float f1 = 0.75;
+//	//int f = 1;
+////	printf("%7.3s%7.7sfin\n", "hello", "world");
+////	ft_printf("%7.3s%7.7sfin\n", "hello", "world");
+////	printf("%.6i\n", -3);
+////	ft_printf("%.6i\n", -3);
+////	printf("%07i\n", -54);
+////	ft_printf("%07i\n", -54);
+////	printf("%7i\n", -14);
+////	ft_printf("%7i\n", -14);
+////	printf("%7i\n", -2562);
+////	ft_printf("%7i\n", -2562);
+////	printf("\'%5.i\'\n", 0);
+////	ft_printf("\'%5.i\'\n", 0);
+////	printf("this %i number\n", -267);
+////	ft_printf("this %i number\n", -267);
 //	printf("%-3.7i\n", 3267);
 //	ft_printf("%-3.7i\n", 3267);
-
+//
 //	printf("%-8.5i\'\n", 34);
 //	ft_printf("%-8.5i\'\n", 34);
 //	printf("%-10.5i\'\n", -216);
@@ -39,26 +40,28 @@ int main(void)
 //	ft_printf("%-8.5i\'\n", 0);
 //	printf("%-7i\'\n", -14);
 //	ft_printf("%-7i\'\n", -14);
-
-	//printf("%.i\'\n", 0);
-	//ft_printf("%.i", 0);
+//
+//	printf("%.i\'\n", 0);
+//	ft_printf("%.i\'\n", 0);
 //	printf("%u\n", 4294967295u);
-//	ft_printf("%u", 4294967295u);
+//	ft_printf("%u\n", 4294967295u);
 
-
-//	printf("%-05%\n");
-//	ft_printf("%-05%\n");
-
-////	printf("%.7s%.2s\n", "hello", "world");
+//
+//	printf("%-*s\'\n", -32, "abc");
+//	ft_printf("%-*s\'\n", -32, "abc");
+//
+//////	printf("%.7s%.2s\n", "hello", "world");
 ////	ft_printf("%.7s%.2s\n", "hello", "world");
+//
+//char * it = "it";
+//
 
-char * it = "it";
 
-	printf("'%p'\n", NULL);
-	ft_printf("'%p'\n", NULL);
-	printf("'%p'\n", it);
-	ft_printf("'%p'\n", it);
-	printf("'%p'\n", &it);
-	ft_printf("'%p'\n", &it);
+	printf("%u\n", INT_MIN);
+	ft_printf("%u\n", INT_MIN);
+//	printf("'%p'\n", it);
+//	ft_printf("'%p'\n", it);
+//	printf("'%p'\n", &it);
+//	ft_printf("'%p'\n", &it);
 	return (0);
 }

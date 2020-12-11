@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 21:47:46 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 22:16:14 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/11 22:17:45 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,36 @@ static char		*ft_res(int minus, int i, const char *temp)
 }
 
 char			*ft_itoa(int n)
+{
+	long int	num;
+	char		temp[20];
+	int			i;
+	int			minus;
+
+	minus = 0;
+	i = 0;
+	num = (long int)n;
+	if (num < 0)
+	{
+		num = num * -1;
+		minus = 1;
+	}
+	while (num > 10)
+	{
+		temp[i] = (num % 10) + '0';
+		num = num / 10;
+		i++;
+	}
+	temp[i] = (num % 10) + '0';
+	i++;
+	if (num == 10)
+		temp[i++] = '1';
+	temp[i] = '\0';
+	return (ft_res(minus, i, temp));
+}
+
+
+char			*ft_itoa_u(long int n)
 {
 	long int	num;
 	char		temp[20];

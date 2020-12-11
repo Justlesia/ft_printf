@@ -25,6 +25,7 @@ typedef struct	s_keys
 
 size_t	ft_strlen(const char *s);
 char			*ft_itoa( int n);
+char			*ft_itoa_u(long int n);
 
 t_keys * ft_keys(char **str, va_list va);
 int ft_print_s(t_keys *keys, va_list va, int * bytes);

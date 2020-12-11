@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:18:59 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 17:36:07 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/12 00:00:55 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,21 @@ int ft_num(char **str)
 	return num;
 }
 
-int ft_va_arg(va_list va,char **str)
+int ft_va_arg(va_list va,char **str, t_keys **keys, char type)
 {
 	int num;
 
 	num = va_arg(va, int);
+	if (num < 0)
+	{
+		if (type == 'w')
+		{
+			(*keys)->flags = '-';
+			num = num * -1;
+		}
+		if (type == 'p')
+			num =  -1;
+	}
 	(*str)++;
 	return num;
 }
@@ -83,14 +93,14 @@ t_keys *ft_keys(char **str, va_list va)
 	if (ft_atoi((char *)(*str)) != 0 || **str == '0')
 		keys->width = ft_num(str);
 	if (ft_is_in_set("*", **str) == 1)
-		keys->width = ft_va_arg(va,str);
+		keys->width = ft_va_arg(va,str, &keys, 'w');
 	if (ft_is_in_set(".", **str) == 1)
 	{
 		(*str)++;
 //		if ((ft_is_in_set("cspdiuxX%nfge", **str) == 1))
 //			keys->precision = -2;
 		if ((ft_is_in_set("*", **str) == 1))
-			keys->precision = ft_va_arg(va,str);
+			keys->precision = ft_va_arg(va,str, &keys, 'p');
 		else
 			keys->precision = ft_num(str);
 	}
