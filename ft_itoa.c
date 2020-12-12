@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/27 21:47:46 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 22:17:45 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/12 20:54:10 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,14 @@ char			*ft_itoa(int n)
 }
 
 
-char			*ft_itoa_u(long int n)
+char			*ft_itoa_u(long int num)
 {
-	long int	num;
 	char		temp[20];
 	int			i;
 	int			minus;
 
 	minus = 0;
 	i = 0;
-	num = (long int)n;
-	if (num < 0)
-	{
-		num = num * -1;
-		minus = 1;
-	}
 	while (num > 10)
 	{
 		temp[i] = (num % 10) + '0';
@@ -88,6 +81,35 @@ char			*ft_itoa_u(long int n)
 	temp[i] = (num % 10) + '0';
 	i++;
 	if (num == 10)
+		temp[i++] = '1';
+	temp[i] = '\0';
+	return (ft_res(minus, i, temp));
+}
+
+char			*ft_itoa_16(unsigned long num, int dop)
+{
+	char		temp[200];
+	int			i;
+	int tmp;
+	int minus;
+
+	minus = 0;
+	i = 0;
+	while (num > 16)
+	{
+		tmp = (num % 16) ;
+		if (tmp > 9)
+			tmp = tmp + 7 + dop;
+		temp[i] = tmp + '0';
+		num = num / 16;
+		i++;
+	}
+	tmp = (num % 16);
+	if (tmp > 9)
+		tmp = tmp + 7 + dop;
+	temp[i] = tmp + '0';
+	i++;
+	if (num == 16)
 		temp[i++] = '1';
 	temp[i] = '\0';
 	return (ft_res(minus, i, temp));

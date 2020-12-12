@@ -1,3 +1,4 @@
+#include <ntsid.h>
 //
 // Created by Lesia Kiseleva on 03.12.2020.
 //
@@ -39,9 +40,8 @@ char			*ft_itoa_u(long int n);
 t_keys * ft_keys(char **str, va_list va);
 int ft_print_s(t_keys *keys, va_list va, int * bytes);
 int ft_print_c(t_keys *keys, va_list va, int * bytes);
-int ft_print_p(t_keys *keys, va_list va, int * bytes);
-int ft_print_i(t_keys *keys, va_list va, int * bytes);
-int ft_print_x(t_keys *keys, va_list va, int * bytes);
+int ft_print_p_pct(t_keys *keys, va_list va, int * bytes);
+int ft_print_num(t_keys *keys, va_list va, int * bytes);
 char			*ft_itoa_16(unsigned long num, int dop);
 int						ft_atoi(char *str);
 size_t	ft_strlen(const char *s);
