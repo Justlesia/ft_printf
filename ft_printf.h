@@ -18,6 +18,15 @@ typedef struct	s_keys
 	char	specifier;
 }				t_keys;
 
+
+typedef struct s_padding
+{
+	int		w;
+	int 	p;
+	char	w_padding;
+}				t_padding;
+
+
 //t_keys ft_init(t_keys keys);
 //int						ft_atoi(char *str);
 //int		ft_is_in_set(const char *set, char c);
