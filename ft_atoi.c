@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 23:09:30 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/11 21:59:28 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/12 20:49:33 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ static int				ft_prep_at(char *str)
 
 int						ft_atoi(char *str)
 {
-	int			i;
-	long long	pr;
-	long long	nb;
-	int			m;
+	int				i;
+	long long		pr;
+	long long		nb;
+	int				m;
 
 	nb = 0;
 	m = 1;
@@ -67,24 +67,6 @@ int						ft_atoi(char *str)
 	}
 	return (nb * m);
 }
-
-
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	unsigned long l;
-
-	l = 0;
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	while (l < n)
-	{
-		((char *)dst)[l] = ((char *)src)[l];
-		l++;
-	}
-	return (dst);
-}
-
 
 char		*ft_strjoin(char const *s1, char const *s2)
 {
@@ -115,7 +97,6 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-
 char	*ft_strdup(const char *s)
 {
 	size_t		l;
@@ -133,4 +114,16 @@ char	*ft_strdup(const char *s)
 	}
 	res[n] = '\0';
 	return (res);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t l;
+
+	l = 0;
+	while (s[l] != '\0')
+	{
+		l++;
+	}
+	return (l);
 }
