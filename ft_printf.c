@@ -6,16 +6,16 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:38:40 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/12 21:51:44 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 16:54:09 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ft_printf.h"
 
 
-int ft_parse(const char **str, va_list va, int * bytes)
+int			static ft_parse(const char **str, va_list va, int * bytes)
 {
-	t_keys *keys;
+	t_keys		*keys;
 
 	keys = ft_keys((char **)str, va);
 	if (keys->specifier == '\0')
@@ -23,7 +23,7 @@ int ft_parse(const char **str, va_list va, int * bytes)
 	if (keys->specifier == 'c')
 		if((ft_print_c(keys, va, bytes)) < 0)
 			return -1;
-	if (keys->specifier == 's' )
+	if (keys->specifier == 's'|| keys->specifier == '%')
 		if((ft_print_s(keys, va, bytes)) < 0)
 			return -1;
 	if (keys->specifier == 'd' || keys->specifier == 'i'
@@ -31,7 +31,7 @@ int ft_parse(const char **str, va_list va, int * bytes)
 	|| keys->specifier == 'X' )
 		if((ft_print_num(keys, va, bytes)) < 0)
 			return -1;
-	if ( keys->specifier == 'p' || keys->specifier == '%' )
+	if ( keys->specifier == 'p' )
 		if((ft_print_p_pct(keys, va, bytes)) < 0)
 			return -1;
 	free(keys);
@@ -40,8 +40,8 @@ int ft_parse(const char **str, va_list va, int * bytes)
 
 int			ft_printf(const char *str, ...)
 {
-	va_list va;
-	int bytes;
+	va_list		va;
+	int			bytes;
 
 	bytes = 0;
 	va_start(va, str);
