@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/12 23:04:25 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 03:03:40 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ t_padding ft_count_padding(t_keys *keys, int *len, char first)
 	if ((*keys).precision > 0)
 	{
 		pad.p = pad.p + (*keys).precision - *(len);
-		if (first == '-' &&  (*keys).flags != '-')
+		if (first == '-')
 			(pad.p)++;
 	}
-	if ((*keys).precision == 0)
+	if ((*keys).precision == 0 && first == '0' )
 		pad.w = 1;
 	if ((*keys).width > 0)
 	{
@@ -143,9 +143,9 @@ void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 	p = 0;
 	if ((*keys).precision > 0)
 	{
-		p = (*keys).precision - *(len);
+		p = (*keys).precision - *(len) + n ;
 	}
-	if ((*keys).precision == 0)
+	if ((*keys).precision == 0 && str[0] == '0')
 		w = 1;
 	if ((*keys).width > 0)
 	{
@@ -165,11 +165,14 @@ void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 //		write(1, &((*keys).flags), 1);
 //		(*bytes)++;
 //	}
-	while ((p-- + n) > 0 && (*keys).precision >= 0)
+	if (p > 0)
 	{
-		write(1, "0", 1);
-		//if (p > 0)
-		(*bytes)++;
+		while ((p--) > 0 && (*keys).precision >= 0)
+		{
+			write(1, "0", 1);
+			//if (p > 0)
+			(*bytes)++;
+		}
 	}
 	if ((*keys).precision != 0 || str[0] != '0')
 	{
@@ -177,7 +180,7 @@ void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 		(*bytes) = (*bytes) + (*len - n);
 		//free(str);
 	}
-	while (w-- > ((*keys).precision - *(len) + n) && w >= 0)
+	while (w-- > ((*keys).precision - *(len) + n) && w >= 0 && w_padding != 0 )
 	{
 		write(1, &(w_padding), 1);
 		(*bytes)++;
