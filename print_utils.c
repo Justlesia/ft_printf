@@ -127,3 +127,17 @@ size_t	ft_strlen(const char *s)
 	}
 	return (l);
 }
+
+int		ft_is_in_set(const char *set, char c)
+{
+	int		n;
+
+	n = 0;
+	while (set[n] != '\0')
+	{
+		if (set[n] == c)
+			return (1);
+		n++;
+	}
+	return (0);
+}

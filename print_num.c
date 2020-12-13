@@ -133,7 +133,7 @@ int ft_print_num(t_keys *keys, va_list va, int *bytes)
 }
 
 
-int ft_print_p_pct(t_keys *keys, va_list va, int *bytes)
+int ft_print_p(t_keys *keys, va_list va, int *bytes)
 {
 	char *str;
 	char *tmp;
