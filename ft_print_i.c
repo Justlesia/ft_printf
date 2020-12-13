@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/13 03:04:04 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 03:32:03 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_padding ft_count_padding(t_keys *keys, int *len, char first)
 		pad.w = 1;
 	if ((*keys).width > 0)
 	{
-		pad.w_padding = (*keys).flags != '0' || (*keys).precision > 0 ? ' ' : '0';
+		pad.w_padding = (*keys).flags != '0' || (*keys).precision >= 0 ? ' ' : '0';
 		pad.w = pad.w + (*keys).width - *len;
 	}
 	return pad;
