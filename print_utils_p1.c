@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 23:09:30 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/12 20:49:33 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 19:15:42 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,36 +97,6 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-char	*ft_strdup(const char *s)
-{
-	size_t		l;
-	size_t		n;
-	char		*res;
-
-	l = ft_strlen(s);
-	if (!(res = (char *)malloc(l + 1)))
-		return (NULL);
-	n = 0;
-	while (n < l)
-	{
-		res[n] = s[n];
-		n++;
-	}
-	res[n] = '\0';
-	return (res);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t l;
-
-	l = 0;
-	while (s[l] != '\0')
-	{
-		l++;
-	}
-	return (l);
-}
 
 int		ft_is_in_set(const char *set, char c)
 {

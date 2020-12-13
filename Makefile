@@ -13,7 +13,7 @@
 NAME = libftprintf.a
 HEADER = ft_printf.h
 
-SRC = ft_printf.c keys.c print_utils.c print_s.c print_c.c print_num.c print_units_itoa.c
+SRC = ft_printf.c keys.c print_utils_p1.c print_utils_p2.c print_s.c print_c.c print_other.c print_other_utils.c
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   print_utils_toa.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/27 21:47:46 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/12 20:54:10 by lesia            ###   ########.fr       */
+/*   Created: 2020/12/13 19:12:11 by sbrenton          #+#    #+#             */
+/*   Updated: 2020/12/13 19:15:42 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
 static char		*ft_res(int minus, int i, const char *temp)
 {
@@ -63,7 +63,6 @@ char			*ft_itoa(int n)
 	return (ft_res(minus, i, temp));
 }
 
-
 char			*ft_itoa_u(long int num)
 {
 	char		temp[20];
@@ -90,14 +89,14 @@ char			*ft_itoa_16(unsigned long num, int dop)
 {
 	char		temp[200];
 	int			i;
-	int tmp;
-	int minus;
+	int			tmp;
+	int			minus;
 
 	minus = 0;
 	i = 0;
 	while (num > 16)
 	{
-		tmp = (num % 16) ;
+		tmp = (num % 16);
 		if (tmp > 9)
 			tmp = tmp + 7 + dop;
 		temp[i] = tmp + '0';
@@ -113,4 +112,15 @@ char			*ft_itoa_16(unsigned long num, int dop)
 		temp[i++] = '1';
 	temp[i] = '\0';
 	return (ft_res(minus, i, temp));
+}
+
+
+size_t	ft_strlen(const char *s)
+{
+	size_t l;
+
+	l = 0;
+	while (s[l] != '\0')
+		l++;
+	return (l);
 }

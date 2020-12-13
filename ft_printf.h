@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 17:03:58 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/13 17:16:54 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 17:18:40 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ int 			ft_is_in_set(const char *set, char c);
 int				ft_printf(const char *str, ...);
 char			*ft_strdup(const char *s);
 char			*ft_strjoin(char const *s1, char const *s2);
+void			ft_num_pad_and_write(char *str, t_keys *keys, int *bytes);
 
 #endif
