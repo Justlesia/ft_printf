@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 17:18:59 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/12 00:00:55 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 03:25:01 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,13 @@ t_keys *ft_keys(char **str, va_list va)
 	*keys = ft_init(*keys);
 	if (ft_is_in_set("-+ #0", **str) == 1)
 		keys->flags = ft_char(str);
-	if (ft_is_in_set("-+ #", **str) == 1)
-		keys->flags = ft_char(str);
+	while (ft_is_in_set("-+ #0", **str) == 1)
+	{
+		if (ft_is_in_set("-+ #", **str) == 1)
+			keys->flags = ft_char(str);
+		else
+			(*str)++;
+	}
 	if (ft_atoi((char *)(*str)) != 0 || **str == '0')
 		keys->width = ft_num(str);
 	if (ft_is_in_set("*", **str) == 1)

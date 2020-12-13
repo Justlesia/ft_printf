@@ -41,8 +41,8 @@ int main(void)
 //	ft_printf("%-8.5i\'\n", 34);
 //	printf("%-10.5i\'\n", -216);
 //	ft_printf("%-10.5i\'\n", -216);
-//	printf("%-8.5i\'\n", 0);
-//	ft_printf("%-8.5i\'\n", 0);
+	printf("%-05%\n");
+	ft_printf("%-05%\n");
 //	printf("%-7i\'\n", -14);
 //	ft_printf("%-7i\'\n", -14);
 //
@@ -129,31 +129,31 @@ int main(void)
 ////
 //printf("%d\n%d\n",b1,b2);
 
-	//int num = 70;
+	int num = 70;
 	int a = -2;
 	int b = -2;
-//	while(a < 5) //T70-177
-//	{
-//		b = -2;
-//		while (b < 5)
-//		{
-//
-//			b1 =printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
-//			b2 = ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
-//			printf("%d:%d==%d, a == %d, b == %d\n",num, b1, b2, a, b);
-//			num ++;
-//			b1 =printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
-//			b2 =ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
-//			printf("%d:%d==%d\n",num, b1, b2);
-//			num ++;
-//			b1 =printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
-//			b2 =printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
-//			printf("%d:%d==%d\n",num, b1, b2);
-//			num ++;
-//			b++;
-//		}
-//		a++;
-//	}
+	while(a < 5) //T70-177
+	{
+		b = -2;
+		while (b < 5)
+		{
+
+			b1 =printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+			b2 = ft_printf("%*.*i, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d, %*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+			printf("%d:%d==%d, a == %d, b == %d\n",num, b1, b2, a, b);
+			num ++;
+			b1 =printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+			b2 =ft_printf("%-*.*i, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d, %-*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+			printf("%d:%d==%d\n",num, b1, b2);
+			num ++;
+			b1 =printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+			b2 =printf("%0*.*i, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d, %0*.*d\n", a, b, i, a, b, j, a, b, k, a, b, l, a, b, m, a, b, c, a, b, e, a, b, d);
+			printf("%d:%d==%d\n",num, b1, b2);
+			num ++;
+			b++;
+		}
+		a++;
+	}
 
 	a = -2;
 	b = 3;
