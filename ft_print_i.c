@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/13 03:32:03 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 16:11:49 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,130 +63,31 @@ void ft_i_padding(t_keys *keys, int *bytes, int *len, char first)
 		ft_putchar_b('0', bytes);
 }
 
-
-
-//void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
-//{
-//	int n;
-//	int p;
-//	int w;
-//	char w_padding;
-//	//t_padding pad;
-//
-//	p = 0;
-//	w = 0;
-//	w_padding = 0;
-//
-//	n = 0;
-//	if (str[0] == '-')
-//	{
-//		ft_putchar_b('-',bytes);
-//		n++;
-//	}
-////	pad = ft_count_padding(keys, len, str[0]);
-//
-//	if ((*keys).precision > 0)
-//	{
-//		p = (*keys).precision - *(len);
-//	}
-//	if ((*keys).precision == 0)
-//		w = 1;
-//	if ((*keys).width > 0)
-//	{
-//		if ((*keys).flags != '0' || (*keys).precision > 0)
-//			w_padding = ' ';
-//		else
-//			w_padding = '0';
-//		w = w + (*keys).width - *len;
-//	}
-//
-//	if ((*keys).precision > 0)
-//		p = (*keys).precision - *(len);
-//	if ((*keys).precision == 0)
-//		w = 1;
-//	if ((*keys).width > 0)
-//	{
-//		w_padding = (*keys).flags != '0' || (*keys).precision > 0 ? ' ' : '0';
-//		w = w + (*keys).width - *len;
-//	}
-//	while ((p-- + n) > 0 && (*keys).precision >= 0)
-//		ft_putchar_b('0', bytes);
-//	if ((*keys).precision != 0 || str[0] != '0')
-//	{
-//		write(1, &(str[n]), (*len - n));
-//		(*bytes) = (*bytes) + (*len - n);
-//	}
-//	while (w-- > ((*keys).precision - *(len) + n) && w >= 0)
-//		ft_putchar_b(w_padding,bytes);
-//}
-
-
 void ft_i_padding_rev(t_keys *keys, int *bytes, char *str, int *len)
 {
-	int p;
-	int w;
-	char w_padding;
-	int f;
 	int n;
 
-	f = 0;
 	n = 0;
 	if (str[0] == '-')
 	{
-		write(1, "-", 1);
-//		(*len--;
-		(*bytes)++;
+		ft_putchar_b('-',bytes);
 		n++;
-		//f++;
 	}
-	w = 0;
-	p = 0;
-	if ((*keys).precision > 0)
+	t_padding pad;
+	pad = ft_count_padding(keys, len, str[0]);
+	if (pad.p > 0)
 	{
-		p = (*keys).precision - *(len) + n ;
-	}
-	if ((*keys).precision == 0 && str[0] == '0')
-		w = 1;
-	if ((*keys).width > 0)
-	{
-		if ((*keys).flags != '0' || (*keys).precision > 0)
-			w_padding = ' ';
-		else
-			w_padding = '0';
-		w = w + (*keys).width - *len;
-	}
-//	while (w-- > (p + f) && w >= 0)
-//	{
-//		write(1, &(w_padding), 1);
-//		(*bytes)++;
-//	}
-//	while (f-- > 0)
-//	{
-//		write(1, &((*keys).flags), 1);
-//		(*bytes)++;
-//	}
-	if (p > 0)
-	{
-		while ((p--) > 0 && (*keys).precision >= 0)
-		{
-			write(1, "0", 1);
-			//if (p > 0)
-			(*bytes)++;
-		}
+		while ((pad.p--) > 0 && (*keys).precision >= 0)
+			ft_putchar_b('0',bytes);
 	}
 	if ((*keys).precision != 0 || str[0] != '0')
 	{
 		write(1, &(str[n]), (*len - n));
 		(*bytes) = (*bytes) + (*len - n);
-		//free(str);
 	}
-	while (w-- > ((*keys).precision - *(len) + n) && w >= 0 && w_padding != 0 )
-	{
-		write(1, &(w_padding), 1);
-		(*bytes)++;
-	}
+	while (pad.w-- > ((*keys).precision - *(len) + n) && pad.w >= 0 && pad.w_padding != 0 )
+		ft_putchar_b(pad.w_padding, bytes);
 }
-
 
 void ft_num_pad_and_write(char *str, t_keys *keys, int *bytes)
 {
