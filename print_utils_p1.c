@@ -6,13 +6,13 @@
 /*   By: sbrenton <sbrenton@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 23:09:30 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/13 19:15:42 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 21:12:24 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int				ft_space_at(char i)
+static int			ft_space_at(char i)
 {
 	if ((i >= 7 && i <= 13) || i == 32 || i == 0)
 		return (1);
@@ -20,7 +20,7 @@ static int				ft_space_at(char i)
 		return (0);
 }
 
-static int				ft_prep_at(char *str)
+static int			ft_prep_at(char *str)
 {
 	int			i;
 	int			m;
@@ -39,7 +39,7 @@ static int				ft_prep_at(char *str)
 	return (i * m);
 }
 
-int						ft_atoi(char *str)
+int					ft_atoi(char *str)
 {
 	int				i;
 	long long		pr;
@@ -68,7 +68,7 @@ int						ft_atoi(char *str)
 	return (nb * m);
 }
 
-char		*ft_strjoin(char const *s1, char const *s2)
+char				*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t		n;
 	size_t		s1_len;
@@ -97,8 +97,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-
-int		ft_is_in_set(const char *set, char c)
+int					ft_is_in_set(const char *set, char c)
 {
 	int		n;
 

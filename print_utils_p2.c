@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 19:12:11 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/13 19:15:42 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 19:18:04 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,7 @@ char			*ft_itoa_16(unsigned long num, int dop)
 	return (ft_res(minus, i, temp));
 }
 
-
-size_t	ft_strlen(const char *s)
+size_t			ft_strlen(const char *s)
 {
 	size_t l;
 

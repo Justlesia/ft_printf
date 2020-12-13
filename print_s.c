@@ -6,7 +6,7 @@
 /*   By: sbrenton <sbrenton@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 20:12:47 by sbrenton          #+#    #+#             */
-/*   Updated: 2020/12/13 19:20:57 by lesia            ###   ########.fr       */
+/*   Updated: 2020/12/13 21:07:09 by lesia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ int				ft_print_s(t_keys *keys, va_list va, int *bytes)
 	leak = 0;
 	if (keys->specifier == '%')
 	{
-		str = ft_strjoin("","%");
+		str = ft_strjoin("", "%");
 		leak = 1;
 	}
 	else if (!(str = va_arg(va, char *)))
-		{
-			str = ft_strjoin("","(null)");
-			leak = 1;
-		}
+	{
+		str = ft_strjoin("", "(null)");
+		leak = 1;
+	}
 	len = ft_strlen(str);
 	if (len > 0 || str[0] == '\0')
 	{
